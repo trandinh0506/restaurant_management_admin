@@ -10,7 +10,6 @@ import "./dashboard.css";
 
 const socket = io(SERVERHOST);
 
-document.title = "Dashboard";
 const Dashboard = () => {
     const [message, setMessage] = useState("");
     const [isAdmin, setIsAdmin] = useState(false);
@@ -21,7 +20,7 @@ const Dashboard = () => {
     // validate token
     useEffect(() => {
         axios
-            .get(`${SERVERHOST}/admin/validateAdminToken`, {
+            .get(`${SERVERHOST}/admin/validate-admin-token`, {
                 withCredentials: true,
             })
             .then((response) => {
@@ -69,6 +68,12 @@ const Dashboard = () => {
             setTables(tables);
         });
     }, []);
+
+    // set the title
+    useEffect(() => {
+        document.title = "Dashboard";
+    }, []);
+
     // reset notification
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -93,7 +98,14 @@ const Dashboard = () => {
                         >
                             Manage Product
                         </button>
-                        <button key={"table"}>Manage Table</button>
+                        <button
+                            key={"table"}
+                            onClick={() => {
+                                navigate("/manage-table");
+                            }}
+                        >
+                            Manage Table
+                        </button>
                     </div>
                     <div id="viewTableWapper">
                         {tables.map((table) => {

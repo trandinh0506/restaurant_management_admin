@@ -1,3 +1,3 @@
-const SERVERHOST = "http://localhost:8000";
+const SERVERHOST = "https://rst-mgt-service.onrender.com";
 
 export { SERVERHOST };

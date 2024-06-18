@@ -5,6 +5,7 @@ import Notification from "../Notification";
 import { SERVERHOST } from "../domain";
 import "./Login.css";
 
+document.title = "Login";
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
