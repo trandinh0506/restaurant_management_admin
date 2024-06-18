@@ -1,6 +1,71 @@
+#dashboardWapper {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#dashboardWapper button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#dashboardWapper button:hover {
+    background-color: #0056b3;
+}
+
+#viewTableWapper {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+#viewTableWapper > div {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#viewTableWapper > div > div {
+    margin-bottom: 10px;
+}
+
+#viewTableWapper > div > div:last-child {
+    margin-bottom: 0;
+}
+
+#table-name {
+    text-align: center;
+}
+
+/* Styles for individual table items */
+#viewTableWapper > div > div > div {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#viewTableWapper > div > div > div:last-child {
+    border-bottom: none;
+}
+
+/* Access Denied styling */
 #access-denied {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Adjust as needed */
+    padding: 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px auto;
+    max-width: 400px;
 }

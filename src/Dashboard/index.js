@@ -53,11 +53,20 @@ const Dashboard = () => {
             });
     }, [navigate]);
 
+    // first time call api to get Table
+    useEffect(() => {
+        axios
+            .get(SERVERHOST + "/table/get", { withCredentials: true })
+            .then((response) => {
+                console.log(response);
+                setTables(response.data);
+            });
+    }, []);
+
     // get Table
     useEffect(() => {
         socket.on("updateTable", (tables) => {
             setTables(tables);
-            console.log(tables);
         });
     }, []);
     // reset notification
@@ -89,7 +98,23 @@ const Dashboard = () => {
                     <div id="viewTableWapper">
                         {tables.map((table) => {
                             return (
-                                <div key={table.__id}>{table.tableName}</div>
+                                <div key={table.__id}>
+                                    <div id="table-name">
+                                        Bàn {table.tableName}
+                                    </div>
+                                    <div>
+                                        {table.orderedItems.map((item) => {
+                                            return (
+                                                <div key={item.__id}>
+                                                    Tên sản phẩm:{" "}
+                                                    {item.productName}
+                                                    <br />
+                                                    Số lượng: {item.quantity}
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
                             );
                         })}
                     </div>
